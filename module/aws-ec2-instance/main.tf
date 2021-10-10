@@ -7,7 +7,7 @@ resource "aws_instance" "tf" {
   key_name                    = var.key_name             
   monitoring                  = false
   subnet_id                   = var.subnet_id            
-  vpc_security_group_ids      = [aws_security_group.foo.id]
+  vpc_security_group_ids      = [aws_security_group.tf.id]
   root_block_device {
     delete_on_termination = true
     encrypted             = false
