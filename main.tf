@@ -1,4 +1,4 @@
-module "first-instance" {
+module "one" {
   source               = "./module/aws-ec2-instance"
   ami                  = "ami-0aef6aba2189944a9"
   availability_zone    = "ap-southeast-1a"
@@ -18,12 +18,12 @@ module "first-instance" {
   }
 
   ingress_rule = {
-    "3389" = ["sg-07124f269b5937fc0"]
+    "3389" = ["0.0.0.0/0"]
   }
 
 }
 
-module "second-instance" {
+module "two" {
   source               = "./module/aws-ec2-instance"
   ami                  = "ami-0f0eb67421c410761"
   availability_zone    = "ap-southeast-1a"
@@ -42,13 +42,13 @@ module "second-instance" {
     "Type"        = "Instance"
   }
   ingress_rule = {
-    "3389" = ["sg-07124f269b5937fc0"]
-    "80"   = ["sg-00c5ce496cd683c57", "sg-0ca1e6872033f025a"]
+    "3389" = ["0.0.0.0/0"]
+    "80"   = ["0.0.0.0/0"]
   }
 }
 
 
-module "third-instance" {
+module "three" {
   source               = "./module/aws-ec2-instance"
   ami                  = "ami-08c16c182fccbb3ac"
   availability_zone    = "ap-southeast-1a"
@@ -67,7 +67,7 @@ module "third-instance" {
     "Type"        = "Instance"
   }
   ingress_rule = {
-    "3389" = ["sg-07124f269b5937fc0"]
-    "80"   = ["sg-00c5ce496cd683c57"]
+    "3389" = ["0.0.0.0/0"]
+    "80"   = ["0.0.0.0/0"]
   }
 }

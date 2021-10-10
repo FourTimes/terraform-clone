@@ -76,7 +76,7 @@ resource "aws_security_group" "db" {
             ipv6_cidr_blocks = []
             prefix_list_ids  = []
             protocol         = "tcp"
-            security_groups  = [aws_security_group.boo.id]
+            security_groups  = [module.two.aws_security_group]
             self             = false
             to_port          = 1433
         },
@@ -87,7 +87,7 @@ resource "aws_security_group" "db" {
             ipv6_cidr_blocks = []
             prefix_list_ids  = []
             protocol         = "tcp"
-            security_groups  = [aws_security_group.foo.id]
+            security_groups  = [module.three.aws_security_group]
             self             = false
             to_port          = 1433
         }]
